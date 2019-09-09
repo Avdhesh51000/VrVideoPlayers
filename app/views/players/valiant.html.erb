@@ -1,0 +1,28 @@
+<h1>Valiant</h1>
+<script src="/assets/jquery-1.7.2.min.js"></script>
+<script src="/assets/three.min.js"></script>
+<!-- Valiant360 plugin -->
+<script src="/assets/jquery.valiant360.min.js"></script>
+<!-- Valiant360 styles -->
+<!-- <link rel="stylesheet" type="text/css" href="/assets/valiant360.css"> -->
+<div class="valiant video" data-video-src="/assets/<%= params[:name] %>.mp4"></div>
+<script type="text/javascript">
+$(function() {
+    $('.valiant').Valiant360();
+
+    // play
+    // $('.valiant').Valiant360('play');
+
+    // // pause
+    // $('.valiant').Valiant360('pause');
+
+    // // load new video file
+    // $('.valiant').Valiant360('loadVideo', '/assets/vid.mp4');
+});
+</script>
+<style type="text/css">
+.video {
+    height: 600px;
+    width: 900px;
+}
+</style>

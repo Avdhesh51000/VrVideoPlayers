@@ -1,0 +1,44 @@
+<h1>U To Vr player</h1>
+<style type="text/css">
+html body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+
+#panoDesk {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+</style>
+<div id="panoDesk"></div>
+<script type="text/javascript" src="/player/UtoVRPlayerGuide.js"></script>
+<script>
+var params = {
+    container: document.getElementById("panoDesk"),
+    name: "SceneViewer",
+    isGyro: true,
+    scenesArr: [{
+        sceneId: "v1",
+        sceneName: "赛车",
+        sceneFilePath: '/assets/<%= params[:name]%>.mp4',
+        sceneType: "Video",
+        isVideoAutoPlay: true
+    }],
+    errorCallBack: function(e) {
+        console.log("错误状态：" + e);
+    },
+    fsCallBack: function(status, playObj) {
+        alert("浏览器不支持全屏！");
+    }
+};
+window.onload = function() {
+    initLoad(params);
+};
+</script>

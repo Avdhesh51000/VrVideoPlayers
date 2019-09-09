@@ -1,0 +1,18 @@
+<h1>Video JS</h1>
+<link href="/assets/video-js.css" rel="stylesheet">
+<link href="/assets/videojs-vr.css" rel="stylesheet">
+<video width="640" height="300" id="videojs-vr-player" class="video-js vjs-default-skin" controls playsinline>
+    <source src="/assets/<%= params[:name] %>" type="video/mp4">
+</video>
+<script src="/assets/video.js"></script>
+<script src="/assets/videojs-vr.js"></script>
+<script>
+(function(window, videojs) {
+    var player = window.player = videojs('videojs-vr-player');
+    player.mediainfo = player.mediainfo || {};
+    player.mediainfo.projection = '360';
+
+    // AUTO is the default and looks at mediainfo
+    var vr = window.vr = player.vr({ projection: 'AUTO', debug: true, forceCardboard: false });
+}(window, window.videojs));
+</script>
